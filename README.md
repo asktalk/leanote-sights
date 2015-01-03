@@ -1,0 +1,4 @@
+leanote-sights
+==============
+
+leanote theme
