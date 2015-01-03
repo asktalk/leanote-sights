@@ -1,0 +1,41 @@
+{{template "header.html" .}}
+
+<div class="blogitem">
+    <article class="text">
+        <div>
+            <h1>归档 {{if $.curCateTitle}} - {{$.curCateTitle}}{{end}}</h1>
+        </div>
+        <div>
+
+            <div >
+                <ul>
+                    {{range $.archives}}
+                    <li><span class="archive-year"><h3>{{.Year}}年</h3></span>
+                        <ul>
+                            {{range .MonthAchives}}
+                            <li>
+                                <span class="archive-month"><h4>&nbsp;&nbsp; {{.Month}}月份</h4></span>
+                                <ul>
+                                    {{range .Posts}}
+                                    <li>
+                                        &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; {{dateFormat .PublicTime "2006-01-02"}} &nbsp; <a href="{{$.postUrl}}/{{.UrlTitle}}">{{.Title}}</a>
+                                    </li>
+                                    {{end}}
+                                </ul>
+
+                            </li>
+                            {{end}}
+                        </ul>
+                    </li>
+                    {{end}}
+                </ul>
+            </div>
+        </div>
+    </article>
+    {{template "footer.html" .}}
+</div>
+
+
+
+</body>
+</html>

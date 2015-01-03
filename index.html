@@ -1,0 +1,32 @@
+{{template "header.html" .}}
+
+
+<div class="blogitem">
+    <div>
+        {{range $.posts}}
+        <article>
+            <h2 class="title"><a href="{{$.postUrl}}/{{.UrlTitle}}">{{.Title}}</a></h2>
+
+
+
+            <ul class="text"> {{.Abstract | raw}}
+
+                <a class="btn btn-danger" href="{{$.postUrl}}/{{.UrlTitle}}" title="查看全文">查看全文</a>
+            </ul>
+
+        </article>
+
+        {{end}}
+
+        <!-- 分页 -->
+        {{template "paging.html" $}}
+    </div>
+
+    {{template "footer.html" $}}
+    {{template "highlight.html" $}}
+
+</div>
+
+
+</body>
+</html>

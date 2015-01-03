@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="leanote,leanote.com">
+    <meta name="description" content="leanote, not only a notebook">
+    <meta name="author" content="leanote">
+
+
+    <title>
+        {{if $.curIsIndex}}
+        {{$.blogInfo.Title}}
+        {{else if $.curIsCate}}
+        分类-{{$.curCateTitle}}
+        {{else if $.curIsSearch}}
+        搜索-{{$.keywords}}
+        {{else if $.curIsTags}}
+        我的标签
+        {{else if $.curIsTagPosts}}
+        标签-{{$.curTag}}
+        {{else if $.curIsPost}}
+        {{$.post.Title}}
+        {{else if $.curIsSingle}}
+        {{$.single.Title}}
+        {{else if $.curIsArchive}}
+        归档
+        {{end}}
+
+    </title>
+    <!-- Bootstrap core CSS -->
+    <link href="{{$.bootstrapCssUrl}}" rel="stylesheet">
+    <link href="{{$.themeBaseUrl}}/styles.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="{{$.themeBaseUrl}}/modernizr.js"></script>
+    <![endif]-->
+</head>
+<body>
+<header>
+    <nav id="nav">
+        <ul>
+            <li class="{{if $.curIsIndex}}active{{end}}"><a href="{{.indexUrl}}" class="nav-header">主页</a></li>
+            <!-- 分类页 -->
+            {{range $.cates}}
+            <li class="{{if eq .CateId $.curCateId}}active{{end}}">
+                <a href="{{$.cateUrl}}/{{.UrlTitle}}" class="nav-header"
+                        >{{.Title}}</a>
+            </li>
+            {{end}}
+            <!-- 单页 -->
+            {{range $.singles}}
+            <li class="{{if eq $.curSingleId .SingleId}}active{{end}}">
+                <a href="{{$.singleUrl}}/{{.UrlTitle}}" class="nav-header">{{.Title}}</a>
+            </li>
+            {{end}}
+
+            <!-- 归档 -->
+            <li class="{{if $.curIsArchive}}active{{end}}">
+                <a href="{{$.archiveUrl}}" class="nav-header">归档</a>
+            </li>
+            <li class="{{if $.curIsTags}}active{{end}}">
+                <a href="{{$.tagsUrl}}" class="nav-header">标签</a>
+            </li>
+
+        </ul>
+        <script src="silder.js"></script><!--获取当前页导航 高亮显示标题-->
+    </nav>
+</header>
+<div class="mainContent">
+    <aside>
+        <div class="avatar">
+            {{if $.blogInfo.Logo}}
+
+
+            <a href="{{$.indexUrl}}" style="display: block; padding-top: 97px; width: 160px; height: 160px; background: url({{$.blogInfo.Logo}}) no-repeat; background-size: 160px 160px;";><span>{{$.blogInfo.Title}}</span></a>
+            {{else}}
+            <a href="{{$.indexUrl}}" style="display: block; padding-top: 97px; width: 160px; height: 160px; background: url({{$.themeBaseUrl}}/images/photo.png) no-repeat; background-size: 160px 160px;";><span>{{$.blogInfo.Title}}</span></a>
+
+            {{end}}
+        </div>
+        <section class="topspaceinfo">
+            <h1>{{$.blogInfo.SubTitle | raw}}</h1>
+            <p>执子之手，与子偕老....</p>
+        </section>
+
+        <div class="userinfo">
+            <p class="q-fans"> 粉丝：<a href="/" target="_blank">167</a></p>
+            <p class="btns"><a href="/" target="_blank" >私信</a><a href="/" target="_blank">相册</a><a href="/" target="_blank">存档</a></p>
+        </div>
+
+        <section class="newpic">
+            <h2>最新照片</h2>
+            <ul>
+                <li><a href="/"><img src="{{$.themeBaseUrl}}/images/01.jpg"></a></li>
+                <li><a href="/"><img src="{{$.themeBaseUrl}}/images/02.jpg"></a></li>
+                <li><a href="/"><img src="{{$.themeBaseUrl}}/images/03.jpg"></a></li>
+                <li><a href="/"><img src="{{$.themeBaseUrl}}/images/04.jpg"></a></li>
+                <li><a href="/"><img src="{{$.themeBaseUrl}}/images/05.jpg"></a></li>
+                <li><a href="/"><img src="{{$.themeBaseUrl}}/images/06.jpg"></a></li>
+                <li><a href="/"><img src="{{$.themeBaseUrl}}/images/07.jpg"></a></li>
+                <li><a href="/"><img src="{{$.themeBaseUrl}}/images/08.jpg"></a></li>
+            </ul>
+        </section>
+        <section class="taglist">
+            <h2>全部标签</h2>
+            <ul>
+
+                {{range $.tags}}
+                <li>
+                    <a href="{{$.tagPostsUrl}}/{{.Tag}}">
+                        {{.Tag}}({{.Count}})
+                    </a>
+                </li>
+                {{end}}
+
+            </ul>
+        </section>
+    </aside>

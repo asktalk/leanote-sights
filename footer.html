@@ -1,0 +1,23 @@
+<div class="footer">
+    {{$userId := $.blogInfo.UserId}}
+
+
+    © 2015 {{$.blogInfo.Title}}&nbsp;&nbsp; theme by <a href="https://github.com/asktalk">keep</a>  &nbsp;&nbsp;  Powered by <a href="http://www.leanote.com">leanote</a>
+
+<script src="{{$.jQueryUrl}}"></script>
+<script src="{{$.bootstrapJsUrl}}"></script>
+<script src="{{$.siteUrl}}/js/bootstrap-hover-dropdown.js"></script>
+<script>
+    // 搜索
+    function search(e) {
+        var keywords = $("#searchInput").val();
+        if(!keywords) {
+            location.href = "{{$.searchUrl}}";
+        } else {
+            var tpl = '<form action="{{$.searchUrl}}" method="get">';
+            tpl += '<input name="keywords" value="' + keywords + '" />';
+            tpl += "</form";
+            $(tpl).submit();
+        }
+    }
+</script>

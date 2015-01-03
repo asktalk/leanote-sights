@@ -1,0 +1,55 @@
+{{template "header.html" .}}
+
+
+
+
+<div class="blogitem">
+	<div>
+		{{range .posts}}
+		<article>
+			<h2 class="title"><a href="{{$.postUrl}}/{{.UrlTitle}}">{{.Title}}</a></h2>
+
+			<ul class="text">
+				<i class="fa fa-bookmark-o"></i>
+				{{if .Tags}}
+				{{blogTags $ .Tags}}
+				{{else}}
+				无
+				{{end}}
+				|
+				<i class="fa fa-calendar"></i> 更新 {{.UpdatedTime | datetime}} |
+				<i class="fa fa-calendar"></i> 创建 {{.CreatedTime | datetime}}
+			</ul>
+
+
+			{{if $.post.IsMarkdown }}
+			<ul class="text markdown-content">{{.Abstract | raw}}</ul>
+			{{else}}
+			<ul class="text">{{.Abstract | raw}}</ul>
+			{{end}}
+
+			<div class="textfoot">
+				<a href="{{$.postUrl}}/{{.UrlTitle}}">阅读全文</a>
+			</div>
+
+
+		</article>
+		{{else}}
+		<div class="each-post">
+			无
+		</div>
+		{{end}}
+
+	</div>
+
+
+
+	{{template "paging.html" $}}
+
+</div>
+
+
+{{template "footer.html" $}}
+{{template "highlight.html" $}}
+</body>
+</html>
