@@ -23,6 +23,8 @@
     "AuthorUrl": "http://keep.leanote.com",
     "FriendLinks": [ 
         {"Title": "我的笔记", "Url": "http://leanote.com/note"},
+        {"Title": "sights主题", "Url": "http://keep.leanote.com"},
+        {"Title": "keep", "Url": "http://keep.leanote.com"},
         {"Title": "leanote home", "Url": "http://leanote.com"},
         {"Title": "leanote github", "Url": "https://github.com/leanote/leanote"}
     ]

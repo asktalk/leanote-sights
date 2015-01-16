@@ -78,3 +78,5 @@ footer { border-top: 9px solid #f16e50; background: #242221; width: 100%; }
 .footer { font-size: 14px; padding: 5px 20px; }
 .cat { font-size: 14px; padding: 10px 10px;margin-left: 30px; }
 .nav-header {font: 14px}
+
+.friendlink ul li { color: #454545; }

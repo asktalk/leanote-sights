@@ -1,5 +1,7 @@
 <!-- 赞 -->
-<div class="entry-controls clearfix">
+<div class="entry-controls clearfix" style="
+    margin-left: 20px;
+    margin-right: 20px;">
 	<div class="vote-section-wrapper clearfix">
 		<button class="btn btn-default btn-zan" id="likeBtn"><i class="fa fa-thumbs-o-up"></i> <span id="likeNum">{{$.post.LikeNum}}</span> 赞</button>
 		<span class="control-item read-counts"><i class="fa fa-eye"></i> {{if $.post.ReadNum}}{{$.post.ReadNum}}{{else}}1{{end}} 人读过</span>
@@ -89,8 +91,7 @@
 			
 			<!-- 回复该评论 -->
 			[[if ~root.visitUserInfo.UserId]]
-			<form class="comment-form comment-box-ft">
-				<div class="clearfix">
+			<form class="comment-form comment-box-ft" >
 					<div class="avatar-wrap">
 						<img class="avatar" src="[[:~root.visitUserInfo.Logo]]">
 					</div>
@@ -111,7 +112,8 @@
 </script>
 
 <!-- 评论 -->
-<div class="comment-box hide">
+<div class="comment-box hide" style="margin-left: 20px;margin-right: 20px;">
+	<div class="clearfix">
 	<form class="comment-form comment-box-ft hide" id="commentForm">
 		<div class="clearfix">
 			<div class="avatar-wrap">

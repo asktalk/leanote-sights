@@ -19,7 +19,6 @@
                     <i class="fa fa-calendar"></i> 创建于 {{$.post.CreatedTime | datetime}}
                 </ul>
 
-
             {{if $.post.IsMarkdown }}
             <ul class="text markdown-content">{{$.post.Content | raw}}</ul>
             {{else}}
