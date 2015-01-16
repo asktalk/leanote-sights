@@ -109,7 +109,7 @@
             <h2>最新文章</h2>
             <ul style="list-style: decimal-leading-zero;">
                 {{range .recentPosts}}
-                <li title="{{.Title}}"><a href="{{$.postUrl}}/{{.UrlTitle}}" style="color: #0000FF;">{{.Title}}</a></li>
+                <li title="{{.Title}}"><a href="{{$.postUrl}}/{{.UrlTitle}}" style="color: #3F3E3C;">{{.Title}}</a></li>
                 {{end}}
             </ul>
 
@@ -120,7 +120,7 @@
             <ul style="list-style: decimal-leading-zero;">
                 {{if $.themeInfo.FriendLinks}}
                 {{range $.themeInfo.FriendLinks}}
-                <li><a href="{{.Url}}" target="_blank" style="color: #0000FF;">{{.Title}}</a></li>
+                <li><a href="{{.Url}}" target="_blank" style="color: #3F3E3C;">{{.Title}}</a></li>
                 {{end}}
                 {{end}}
             </ul>
